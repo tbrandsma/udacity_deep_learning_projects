@@ -12860,7 +12860,7 @@ Model Trained and Saved
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[58]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
@@ -12899,7 +12899,7 @@ Model Trained and Saved
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[68]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">get_tensors</span><span class="p">(</span><span class="n">loaded_graph</span><span class="p">):</span>
@@ -12955,7 +12955,7 @@ Model Trained and Saved
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[77]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">pick_word</span><span class="p">(</span><span class="n">probabilities</span><span class="p">,</span> <span class="n">int_to_vocab</span><span class="p">):</span>
@@ -12965,8 +12965,10 @@ Model Trained and Saved
 <span class="sd">    :param int_to_vocab: Dictionary of word ids as the keys and words as the values</span>
 <span class="sd">    :return: String of the predicted word</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    
-    <span class="k">return</span> <span class="n">int_to_vocab</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">probabilities</span><span class="p">)]</span>
+    <span class="c1"># per reviewer recommendation, adding a random function that will choose within the probability distribution of probabilities</span>
+    <span class="n">choice</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">probabilities</span><span class="p">),</span> <span class="n">p</span><span class="o">=</span><span class="n">probabilities</span><span class="p">)</span>
+    <span class="c1">#print (probabilities, int_to_vocab[choice])</span>
+    <span class="k">return</span> <span class="n">int_to_vocab</span><span class="p">[</span><span class="n">choice</span><span class="p">]</span>
 
 
 <span class="sd">&quot;&quot;&quot;</span>
@@ -13008,7 +13010,7 @@ Model Trained and Saved
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[78]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">gen_length</span> <span class="o">=</span> <span class="mi">200</span>
@@ -13069,25 +13071,21 @@ Model Trained and Saved
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>moe_szyslak: you little s. o. b., if i ever find, it&#39;s all i had you gonna be a four-star brother-in-law.
-bar_rag: so to the man that place will never been in your life?
-moe&#39;s_thoughts:(grimly) okay there, i&#39;m sorry.
-barney_gumble: maybe i have my lucky principal need to go.
-homer_simpson: to barney.&#34;
-
-
-homer_simpson: gentlemen, i seen prizefighters couldn&#39;t take a punch half as good as you!
-barney_gumble:(to the car yes!
-moe_szyslak: you come, the three.
-homer_simpson: okay, barney!(sighs) well, i have a duff sangre de los muertos with my best friend.
-moe_szyslak: what? it&#39;s a. book, i need to hear about another right now.
-
-
-moe_szyslak: ah, yes.(quickly points to go) or do on that.
-moe_szyslak:(to the kids man, behind this dog.
-moe_szyslak: just got this way, have a problem?
-
-i can follow him to make friends) you cost
+<pre>moe_szyslak: eh, milhouse, i can.
+moe_szyslak: what?
+homer_simpson:(tipsy) hey, moe, you no used to be offended) you.
+moe_szyslak: yeah, well, i was just a thing in the world.
+moe_szyslak: okay, it&#39;ll be for ya.(attack yell)
+homer_simpson: eh, i don&#39;t get back! you&#39;re going to do your job?
+moe_szyslak: you&#39;re too late to this.
+moe_szyslak: oh well, i mad at her. but got happened, and i have.
+homer_simpson:(losing it) everybody more cries for your&#34; flaming moe&#34;...
+jacques: i was,(coyly) i ain&#39;t no refund.
+moe_szyslak: now, the plan.
+homer_simpson: it&#39;s not that whether to be. the greatest.
+carl_carlson:, homer, ya, moe? how do i give you your buttons?
+homer_simpson: you guys are right now to make a fuss over me.
+carl_carlson: actually,&#34; i&#39;d like to see the person who filed the complaint? that&#39;s it. can&#39;t
 </pre>
 </div>
 </div>
